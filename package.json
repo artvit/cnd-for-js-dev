@@ -1,0 +1,23 @@
+{
+  "name": "cnd-for-js-dev",
+  "version": "0.1.0",
+  "description": "Cloud and DevOps for JS developers",
+  "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:artvit/cnd-for-js-dev.git"
+  },
+  "author": "Artsiom Vitkouski <Artsiom_Vitkouski@epam.com>",
+  "license": "ISC",
+  "scripts": {
+    "start": "node src/main.js",
+    "start:watch": "nodemon",
+    "prepare": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "husky": "^6.0.0",
+    "nodemon": "^2.0.7"
+  }
+}
