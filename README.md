@@ -9,3 +9,6 @@ Runs the application
 
 ### `npm run start:watch`
 Runs the application in watch mode (the application is restarted after changes in source code).
+
+### `npm run lint`
+Runs linter on source code
