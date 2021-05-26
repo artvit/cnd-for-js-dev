@@ -4,6 +4,9 @@ Cloud and DevOps for JS developers
 ## Available Scripts
 In the project directory, you can run:
 
+### `npm run build:ui`
+Builds ui code and places it in static folder
+
 ### `npm start`
 Runs the application
 

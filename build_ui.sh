@@ -1,4 +1,13 @@
 #!/bin/sh
+ui_environment="export const environment = {
+  production: true,
+  isAuthorizationEnabled: false,
+  apiUrls: {
+    auth: '',
+    quote: '/api',
+    share: '',
+  },
+};"
 current_dir=$(pwd)
 rm -rf static
 cd ..
@@ -12,7 +21,8 @@ else
 fi
 cd "ngQuote" || exit
 rm -rf dist
-npm run build
+echo "$ui_environment" > src/environments/environment.prod.ts
+npm run build -- --prod
 mv dist "$current_dir/t_dist"
 cd "$current_dir" || exit
 mv t_dist static
