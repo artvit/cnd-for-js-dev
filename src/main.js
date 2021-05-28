@@ -33,6 +33,7 @@ app
 
 const server = http.createServer(app.callback());
 createTerminus(server, {
+  signals: ['SIGTERM', 'SIGINT', 'SIGQUIT'],
   onShutdown: () => console.log('Server shut down')
 });
-server.listen(config.PORT, err => err ? console.error(err) : console.log('Server started'));
+server.listen(config.PORT, err => err ? console.error(err) : console.log(`Server started on port ${config.PORT}`));
