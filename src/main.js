@@ -1,13 +1,17 @@
+const config = require('./config');
+
 const Koa = require('koa');
 const Router = require('@koa/router');
 const bodyParser = require('koa-bodyparser');
 const serve = require('koa-static');
 
-const config = require('./config');
+const quotesRouter = require('./app/routes/quotes');
 
 const app = new Koa();
 const router = new Router();
 const apiRouter = new Router();
+
+apiRouter.use(quotesRouter.routes());
 
 router
   .use('/api', apiRouter.routes())
