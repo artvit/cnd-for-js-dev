@@ -1,9 +1,11 @@
 const config = require('./config');
 
+const http = require('http');
 const Koa = require('koa');
 const Router = require('@koa/router');
 const bodyParser = require('koa-bodyparser');
 const serve = require('koa-static');
+const { createTerminus } = require('@godaddy/terminus');
 
 const quotesRouter = require('./app/routes/quotes');
 
@@ -29,4 +31,8 @@ app
   .use(router.routes())
   .use(router.allowedMethods());
 
-app.listen(config.PORT);
+const server = http.createServer(app.callback());
+createTerminus(server, {
+  onShutdown: () => console.log('Server shut down')
+});
+server.listen(config.PORT, err => err ? console.error(err) : console.log('Server started'));

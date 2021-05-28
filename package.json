@@ -17,6 +17,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@godaddy/terminus": "^4.8.0",
     "@koa/router": "^10.0.0",
     "dotenv": "^10.0.0",
     "koa": "^2.13.1",
