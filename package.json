@@ -23,7 +23,8 @@
     "koa": "^2.13.1",
     "koa-bodyparser": "^4.3.0",
     "koa-static": "^5.0.0",
-    "quotesy": "^1.0.5"
+    "quotesy": "^1.0.5",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@commitlint/cli": "^12.1.4",

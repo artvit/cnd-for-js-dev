@@ -37,7 +37,7 @@ class QuotesService {
 
   update(id, quote) {
     const storedQuote = this.storage.get(id);
-    if (storedQuote) {
+    if (storedQuote && !storedQuote.isDeleted) {
       quote.updatedAt = new Date();
       return mapToTransferObject(this.storage.set(id, { ...storedQuote, ...quote }));
     }
@@ -45,7 +45,7 @@ class QuotesService {
 
   remove(id) {
     const quote = this.storage.get(id);
-    if (quote) {
+    if (quote && !quote.isDeleted) {
       quote.isDeleted = true;
       this.storage.set(id, quote);
       return mapToTransferObject(quote);

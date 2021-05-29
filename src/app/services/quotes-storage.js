@@ -1,4 +1,5 @@
 const quotesy = require('quotesy');
+const uuid = require('uuid');
 
 const mapFromRawQuote = rawQuote => ({
   author: rawQuote.author,
@@ -12,11 +13,13 @@ const mapFromRawQuote = rawQuote => ({
 
 class QuotesStorage {
   constructor() {
-    this.quotes = quotesy.parse_json().reduce((map, rawQuote, index) => map.set(index, {
-      ...mapFromRawQuote(rawQuote),
-      id: index
-    }), new Map());
-    this.nextIndex = this.quotes.size;
+    this.quotes = quotesy.parse_json().reduce((map, rawQuote) => {
+      const id = uuid.v4();
+      return map.set(id, {
+        ...mapFromRawQuote(rawQuote),
+        id
+      });
+    }, new Map());
   }
 
   get(id) {
@@ -28,7 +31,7 @@ class QuotesStorage {
   }
 
   add(quote) {
-    const id = this.nextIndex++;
+    const id = uuid.v4();
     return this.quotes.set(id, { ...quote, id }).get(id);
   }
 
