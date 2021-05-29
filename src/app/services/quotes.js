@@ -30,7 +30,6 @@ class QuotesService {
   }
 
   add(quoteData) {
-    console.log(quoteData);
     const quote = mapFromTransferObject(quoteData);
     quote.createdAt = new Date();
     quote.updatedAt = new Date();
