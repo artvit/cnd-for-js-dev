@@ -4,6 +4,7 @@ const mapFromRawQuote = rawQuote => ({
   author: rawQuote.author,
   text: rawQuote.text,
   source: rawQuote.source,
+  tags: rawQuote.tags?.split(', '),
   createdAt: new Date(),
   updatedAt: new Date(),
   isDeleted: false
