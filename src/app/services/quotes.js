@@ -1,5 +1,5 @@
 const QuotesStorage = require('./quotes-storage');
-const { mapToTransferObject } = require('./quote-mapper');
+const { mapFromTransferObject, mapToTransferObject } = require('./quote-mapper');
 
 class QuotesService {
   constructor() {
@@ -20,22 +20,25 @@ class QuotesService {
   getRandom() {
     const all = this.getAll();
     const idx = Math.floor(all.length * Math.random());
-    return all[idx] && mapToTransferObject(all[idx]);
+    return all[idx] && all[idx];
   }
 
   getRandomByTag(tag) {
     const filtered = this.getAll().filter(quote => quote.tags?.includes(tag));
     const idx = Math.floor(filtered.length * Math.random());
-    return filtered[idx] && mapToTransferObject(filtered[idx]);
+    return filtered[idx] && filtered[idx];
   }
 
-  add(quote) {
+  add(quoteData) {
+    console.log(quoteData);
+    const quote = mapFromTransferObject(quoteData);
     quote.createdAt = new Date();
     quote.updatedAt = new Date();
     return mapToTransferObject(this.storage.add(quote));
   }
 
-  update(id, quote) {
+  update(id, quoteData) {
+    const quote = mapFromTransferObject(quoteData);
     const storedQuote = this.storage.get(id);
     if (storedQuote && !storedQuote.isDeleted) {
       quote.updatedAt = new Date();

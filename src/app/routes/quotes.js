@@ -29,14 +29,24 @@ router
       ctx.body = notFound();
     }
   })
+  .get('/:id', async ctx => {
+    const quote = quotesService.getById(ctx.params.id);
+    if (quote) {
+      ctx.body = successBody(quote);
+    } else {
+      ctx.status = 404;
+      ctx.body = notFound();
+    }
+  })
   .post('/', async ctx => {
-    const quoteData = ctx.req.body;
+    const quoteData = ctx.request.body;
     const quote = quotesService.add(quoteData);
     ctx.status = 201;
     ctx.body = successBody(quote, 201);
   })
-  .get('/:id', async ctx => {
-    const quote = quotesService.getById(ctx.params.id);
+  .put('/:id', async ctx => {
+    const quoteData = ctx.request.body;
+    const quote = quotesService.update(ctx.params.id, quoteData);
     if (quote) {
       ctx.body = successBody(quote);
     } else {
