@@ -4,8 +4,6 @@ const http = require('http');
 const Koa = require('koa');
 const Router = require('@koa/router');
 const bodyParser = require('koa-bodyparser');
-const serve = require('koa-static');
-const historyFallback = require('koa-history-api-fallback');
 const { createTerminus } = require('@godaddy/terminus');
 
 const quotesRouter = require('./app/routes/quotes');
@@ -27,8 +25,6 @@ router
   });
 
 app
-  .use(historyFallback())
-  .use(serve('static'))
   .use(bodyParser())
   .use(router.routes())
   .use(router.allowedMethods());
