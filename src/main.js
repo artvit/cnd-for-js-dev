@@ -1,4 +1,4 @@
-const config = require('./config');
+require('./config');
 
 const http = require('http');
 const Koa = require('koa');
@@ -34,4 +34,4 @@ createTerminus(server, {
   signals: ['SIGTERM', 'SIGINT', 'SIGQUIT'],
   onShutdown: () => console.log('Server shut down')
 });
-server.listen(config.PORT, err => err ? console.error(err) : console.log(`Server started on port ${config.PORT}`));
+server.listen(process.env.PORT, err => err ? console.error(err) : console.log(`Server started on port ${process.env.PORT}`));

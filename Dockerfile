@@ -1,8 +1,8 @@
 FROM node
 COPY . /app
 WORKDIR /app
-ARG NODE_ENV=production
+ENV NODE_ENV=production
 RUN npm i --ignore-scripts
-ENV PORT=8080
+ENV PORT=80
 EXPOSE $PORT
 CMD npm start

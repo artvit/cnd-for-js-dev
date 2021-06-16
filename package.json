@@ -39,6 +39,6 @@
     "nodemon": "^2.0.7"
   },
   "lint-staged": {
-    "*.js": "eslint --cache -c .eslintrc.js --no-eslintrc"
+    "*.js": "eslint --cache -c .eslintrc.js"
   }
 }
