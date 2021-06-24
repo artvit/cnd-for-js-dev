@@ -4,14 +4,21 @@ Cloud and DevOps for JS developers
 ## Available Scripts
 In the project directory, you can run:
 
-### `npm run build:ui`
-Builds ui code and places it in static folder
+### Run full application in docker
+`docker-compose` is used to run UI and API containers.
+Application is available on default ports (80 and 443).
+#### `docker-compose up`
+Runs the app parts of application in foreground
+#### `docker-compose up -d`
+Runs the app parts of application in background
+#### `docker-compose down`
+Stops all the containers
 
-### `npm start`
+### Run server with node
+Start API using local NodeJS.
+#### `npm start`
 Runs the application
-
-### `npm run start:watch`
-Runs the application in watch mode (the application is restarted after changes in source code).
-
-### `npm run lint`
+#### `npm run start:watch`
+Runs the application in watch mode (the application restarts after changes in source code).
+#### `npm run lint`
 Runs linter on source code
