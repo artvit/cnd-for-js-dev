@@ -108,5 +108,5 @@ dist
 *.iml
 .vscode
 
-# Generated static assets
-static
+# Certificate and key files
+certs
