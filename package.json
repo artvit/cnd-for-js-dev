@@ -1,0 +1,44 @@
+{
+  "name": "cnd-for-js-dev",
+  "version": "0.1.0",
+  "description": "Cloud and DevOps for JS developers",
+  "main": "src/main.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:artvit/cnd-for-js-dev.git"
+  },
+  "author": "Artsiom Vitkouski <Artsiom_Vitkouski@epam.com>",
+  "license": "ISC",
+  "scripts": {
+    "start": "node src/main.js",
+    "start:watch": "nodemon",
+    "lint": "eslint ./src",
+    "prepare": "husky install"
+  },
+  "dependencies": {
+    "@godaddy/terminus": "^4.8.0",
+    "@koa/router": "^10.0.0",
+    "dotenv": "^10.0.0",
+    "koa": "^2.13.1",
+    "koa-bodyparser": "^4.3.0",
+    "quotesy": "^1.0.5",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^12.1.4",
+    "@commitlint/config-conventional": "^12.1.4",
+    "eslint": "^7.26.0",
+    "eslint-config-koa": "^2.0.2",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.23.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^5.1.0",
+    "eslint-plugin-standard": "^5.0.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "nodemon": "^2.0.7"
+  },
+  "lint-staged": {
+    "*.js": "eslint --cache -c .eslintrc.js"
+  }
+}
